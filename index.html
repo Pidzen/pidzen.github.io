@@ -1,11 +1,65 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Pierre Mordin, sculpteur, modeleur</title>
-  </head>
-  <body>
-    <h1>Bonjour — Mon site GitHub PagesTest</h1>
-    <p>Publié depuis le repo pidzen.github.io</p>
-  </body>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pierre Mordin — Sculpteur/modeleur, inspirations contemporaine</title>
+<meta name="description" content="Pierre Mordin — Sculpteur/modeleur biomécanique et gothique. Trophées, sculptures et pièces sur-mesure.">
+<style>
+  :root{--bg:#0f0f10;--card:#161617;--muted:#9aa0a6;--accent:#b6a19b}
+  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;color:#eee;background:var(--bg);line-height:1.4}
+  header{display:flex;justify-content:space-between;align-items:center;padding:28px 36px}
+  header a{color:#eee;text-decoration:none;margin-left:18px;font-weight:500}
+  .hero{display:flex;gap:36px;padding:36px;align-items:center}
+  .hero .left{max-width:640px}
+  h1{margin:0 0 12px;font-size:36px}
+  p.lead{color:var(--muted);margin:0 0 18px}
+  .cta a{display:inline-block;padding:10px 14px;border-radius:6px;background:var(--card);color:#fff;text-decoration:none;margin-right:8px}
+  .hero img{max-width:420px;border-radius:8px;box-shadow:0 6px 30px rgba(0,0,0,.6)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:24px 36px}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);padding:12px;border-radius:8px}
+  .card img{width:100%;height:220px;object-fit:cover;border-radius:6px}
+  footer{padding:36px;color:var(--muted);text-align:center}
+  @media(max-width:800px){.hero{flex-direction:column}.hero img{max-width:90%}}
+</style>
+</head>
+<body>
+<header>
+  <div style="font-weight:700">Pierre Mordin</div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="left">
+    <h1>P. Mtn — Sculpteur, modeleur biomécanique & gothique</h1>
+    <p class="lead">Trophées uniques • Sculptures fantastiques • Pièces sur-mesure — travail 100% artisanal.</p>
+    <div class="cta">
+      <a href="portfolio.html">Voir le portfolio</a>
+      <a href="contact.html">Demander un devis</a>
+    </div>
+  </div>
+  <div class="right">
+    <img src="assets/img/2.png" alt="Sculpture thème Lovecraft - vue 3/4">
+  </div>
+</section>
+
+<section style="padding:18px 36px">
+  <h2 style="margin-top:0">Sélection</h2>
+  <div class="grid">
+    <div class="card"><a href="portfolio.html"><img src="assets/img/01_BiometalIV_3-4.jpg" alt=""><div style="padding-top:8px;color:var(--muted)">Trophée Biometal IV — 27 cm</div></a></div>
+    <div class="card"><a href="portfolio.html"><img src="assets/img/02_Symbiose_3-4.jpg" alt=""><div style="padding-top:8px;color:var(--muted)">Symbiose Organique — 22 cm</div></a></div>
+    <div class="card"><a href="portfolio.html"><img src="assets/img/03_Detail.jpg" alt=""><div style="padding-top:8px;color:var(--muted)">Détails & textures</div></a></div>
+    <div class="card"><a href="portfolio.html"><img src="assets/img/04_Totem.jpg" alt=""><div style="padding-top:8px;color:var(--muted)">Totem — Pièce d'expo</div></a></div>
+  </div>
+</section>
+
+<footer>
+  © P. Mtn — Sculpteur • <a href="contact.html" style="color:inherit;text-decoration:underline">Contact</a>
+</footer>
+</body>
 </html>

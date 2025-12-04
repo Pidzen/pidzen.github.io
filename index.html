@@ -7,40 +7,28 @@
 <meta name="description" content="Pierre Mordin — Sculpteur/modeleur biomécanique et gothique. Trophées, sculptures et pièces sur-mesure.">
 <style>
   :root{--bg:#0f0f10;--card:#161617;--muted:#9aa0a6;--accent:#b6a19b}
-  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;color:#eee;background:var(--bg);line-height:1.4}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;color:#eee;background:var(--bg);line-height:1.4}
   header{display:flex;justify-content:space-between;align-items:center;padding:28px 36px}
   header a{color:#eee;text-decoration:none;margin-left:18px;font-weight:500}
-  .hero{display:flex;gap:36px;padding:36px;align-items:center}
-  .hero .left{max-width:640px}
+  .hero{display:flex;gap:36px;padding:36px;align-items:center;flex-wrap:wrap}
+  .hero .left{max-width:640px;flex:1}
+  .hero .right{max-width:420px;flex-shrink:0;border-radius:8px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,.6)}
   h1{margin:0 0 12px;font-size:36px}
   p.lead{color:var(--muted);margin:0 0 18px}
   .cta a{display:inline-block;padding:10px 14px;border-radius:6px;background:var(--card);color:#fff;text-decoration:none;margin-right:8px}
-  .hero img{max-width:420px;border-radius:8px;box-shadow:0 6px 30px rgba(0,0,0,.6)}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:24px 36px}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);padding:12px;border-radius:8px}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);padding:12px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center}
   .card img{width:100%;height:220px;object-fit:cover;border-radius:6px}
   footer{padding:36px;color:var(--muted);text-align:center}
-  @media(max-width:800px){.hero{flex-direction:column}.hero img{max-width:90%}}
-
+  @media(max-width:800px){.hero{flex-direction:column}.hero .right{max-width:90%}}
   /* Lightbox popup */
-  #lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-  }
-  #lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 8px;
-    box-shadow: 0 0 30px rgba(0,0,0,.7);
-  }
+  #lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:9999}
+  #lightbox img{max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 0 30px rgba(0,0,0,.7)}
 </style>
 </head>
 <body>
+
 <header>
   <div style="font-weight:700">Pierre Mordin</div>
   <nav>
@@ -61,29 +49,28 @@
     </div>
   </div>
   <div class="right">
-    <img src="assets/img/2.png" alt="Sculpture thème Lovecraft">
+    <video src="assets/video/pi.mp4" autoplay loop muted playsinline style="width:100%; height:auto; display:block; object-fit:cover;"></video>
   </div>
 </section>
-
 
 <section style="padding:18px 36px">
   <h2 style="margin-top:0; text-align:center;">Sélection</h2>
   <div class="grid">
 
     <!-- Carte 1 -->
-    <div class="card" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-      <div class="thumb-container" style="width:180px; height:180px; background:#111; border-radius:8px; display:flex; align-items:center; justify-content:center; overflow:hidden; cursor:pointer;">
-        <img src="assets/img/4.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain; display:block;">
+    <div class="card">
+      <div class="thumb-container" style="width:180px;height:180px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;">
+        <img src="assets/img/4.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;">
       </div>
       <div style="padding-top:8px;color:var(--muted); text-align:center;">
         <a href="portfolio.html" style="color:inherit;text-decoration:none;">Trophée Biometal IV — 27 cm</a>
       </div>
     </div>
 
-    <!-- Carte 2 (agrandie) -->
-    <div class="card" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-      <div class="thumb-container" style="width:220px; height:220px; background:#111; border-radius:8px; display:flex; align-items:center; justify-content:center; overflow:hidden; cursor:pointer;">
-        <img src="assets/img/20251203_112206.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain; display:block;">
+    <!-- Carte 2 -->
+    <div class="card">
+      <div class="thumb-container" style="width:220px;height:220px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;">
+        <img src="assets/img/20251203_112206.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;">
       </div>
       <div style="padding-top:8px;color:var(--muted); text-align:center;">
         <a href="portfolio.html" style="color:inherit;text-decoration:none;">Symbiose Organique — 22 cm</a>
@@ -91,9 +78,9 @@
     </div>
 
     <!-- Carte 3 -->
-    <div class="card" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-      <div class="thumb-container" style="width:180px; height:180px; background:#111; border-radius:8px; display:flex; align-items:center; justify-content:center; overflow:hidden; cursor:pointer;">
-        <img src="assets/img/5.png" alt="" style="max-width:100%; max-height:100%; object-fit:contain; display:block;">
+    <div class="card">
+      <div class="thumb-container" style="width:180px;height:180px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;">
+        <img src="assets/img/5.png" alt="" style="max-width:100%; max-height:100%; object-fit:contain;">
       </div>
       <div style="padding-top:8px;color:var(--muted); text-align:center;">
         <a href="portfolio.html" style="color:inherit;text-decoration:none;">Détails & textures</a>
@@ -101,9 +88,9 @@
     </div>
 
     <!-- Carte 4 -->
-    <div class="card" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-      <div class="thumb-container" style="width:180px; height:180px; background:#111; border-radius:8px; display:flex; align-items:center; justify-content:center; overflow:hidden; cursor:pointer;">
-        <img src="assets/img/3.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain; display:block;">
+    <div class="card">
+      <div class="thumb-container" style="width:180px;height:180px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;">
+        <img src="assets/img/3.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;">
       </div>
       <div style="padding-top:8px;color:var(--muted); text-align:center;">
         <a href="portfolio.html" style="color:inherit;text-decoration:none;">Totem — Pièce d'expo</a>
@@ -112,8 +99,6 @@
 
   </div>
 </section>
-
-
 
 <!-- Lightbox -->
 <div id="lightbox">
@@ -144,5 +129,6 @@ lightbox.addEventListener('click', () => {
 <footer>
   © Sculpteur/modeleur • <a href="contact.html" style="color:inherit;text-decoration:underline">Contact</a>
 </footer>
+
 </body>
 </html>

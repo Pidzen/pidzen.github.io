@@ -3,22 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pierre Mordin — Sculpteur/modeleur, inspirations contemporaine</title>
+<title>Pierre Mordin — Sculpteur/modeleur</title>
 <meta name="description" content="Pierre Mordin — Sculpteur/modeleur biomécanique et gothique. Trophées, sculptures et pièces sur-mesure.">
 
 <style>
-  :root{--bg:#0f0f10;--card:#161617;--muted:#9aa0a6;--accent:#b6a19b}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;color:#eee;background:var(--bg);line-height:1.4}
+  :root{
+    --bg:#0f0f10;
+    --card:#161617;
+    --muted:#9aa0a6;
+    --accent:#b6a19b;
+  }
 
-  header{display:flex;justify-content:space-between;align-items:center;padding:28px 36px}
-  header a{color:#eee;text-decoration:none;margin-left:18px;font-weight:500}
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,Segoe UI,Arial;
+    color:#eee;
+    background:var(--bg);
+    line-height:1.4;
+  }
+
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 36px;
+  }
+  header a{
+    color:#eee;
+    text-decoration:none;
+    margin-left:18px;
+    font-weight:500;
+  }
 
   /* HERO */
-  .hero{display:flex;gap:36px;padding:36px;align-items:center;flex-wrap:wrap;justify-content:center;}
-  .hero .left{max-width:640px;flex:1;text-align:center;}
+  .hero{
+    display:flex;
+    gap:36px;
+    padding:36px;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .hero .left{
+    max-width:640px;
+    flex:1;
+    text-align:center;
+  }
   .hero .right{
     width:260px;
+    height:260px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -26,7 +60,6 @@
     overflow:hidden;
     box-shadow:0 6px 30px rgba(0,0,0,.6);
   }
-
   .hero video{
     width:100%;
     height:100%;
@@ -46,6 +79,11 @@
     color:#fff;
     text-decoration:none;
     margin:0 5px;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .cta a:hover{
+    transform:scale(1.05);
+    background:var(--accent);
   }
 
   /* GRID */
@@ -66,6 +104,11 @@
     justify-content:flex-start;
     min-height:260px;
     text-align:center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
   }
 
   .thumb-container{
@@ -78,19 +121,19 @@
     justify-content:center;
     overflow:hidden;
     cursor:pointer;
+    transition: transform 0.3s ease;
   }
-
-  /* Agrandissement spécifique pour "Symbiose Organique" */
-  .thumb-large{
-    width:230px;
-    height:230px;
-  }
-
   .thumb-container img{
     max-width:100%;
     max-height:100%;
     object-fit:contain;
     display:block;
+    user-drag:none;
+    user-select:none;
+    pointer-events:none;
+  }
+  .thumb-container:hover{
+    transform:scale(1.05);
   }
 
   footer{padding:36px;color:var(--muted);text-align:center}
@@ -109,12 +152,14 @@
     align-items:center;
     justify-content:center;
     z-index:9999;
+    transition: opacity 0.3s ease;
   }
   #lightbox img{
     max-width:90%;
     max-height:90%;
     border-radius:8px;
     box-shadow:0 0 30px rgba(0,0,0,.7);
+    transition: transform 0.3s ease;
   }
 </style>
 </head>
@@ -146,10 +191,8 @@
   </div>
 </section>
 
-
 <section style="padding:18px 36px">
   <h2 style="margin-top:0; text-align:center;">Sélection</h2>
-
   <div class="grid">
 
     <!-- BIOMETAL -->
@@ -162,9 +205,9 @@
       </div>
     </div>
 
-    <!-- SYMBIOSE + GRANDE VIGNETTE -->
+    <!-- SYMBIOSE -->
     <div class="card">
-      <div class="thumb-container thumb-large">
+      <div class="thumb-container">
         <img src="assets/img/20251203_112206.jpg" alt="">
       </div>
       <div style="padding-top:8px;">
@@ -201,7 +244,13 @@
 </div>
 
 <script>
+// Désactive clic droit
 document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Désactive drag
+document.querySelectorAll('img').forEach(img=>{
+  img.ondragstart = () => false;
+});
 
 // Lightbox
 const lightbox = document.getElementById('lightbox');

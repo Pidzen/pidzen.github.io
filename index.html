@@ -14,27 +14,83 @@
   header{display:flex;justify-content:space-between;align-items:center;padding:28px 36px}
   header a{color:#eee;text-decoration:none;margin-left:18px;font-weight:500}
 
-  .hero{display:flex;gap:36px;padding:36px;align-items:center;flex-wrap:wrap}
-  .hero .left{max-width:640px;flex:1}
-  .hero .right{max-width:260px;flex-shrink:0;border-radius:8px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,.6)}
-  .hero video{width:50%;height:auto;border-radius:8px;display:block;object-fit:cover;}
+  /* HERO */
+  .hero{display:flex;gap:36px;padding:36px;align-items:center;flex-wrap:wrap;justify-content:center;}
+  .hero .left{max-width:640px;flex:1;text-align:center;}
+  .hero .right{
+    width:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 6px 30px rgba(0,0,0,.6);
+  }
 
-  h1{margin:0 0 12px;font-size:36px}
-  p.lead{color:var(--muted);margin:0 0 18px}
-  .cta a{display:inline-block;padding:10px 14px;border-radius:6px;background:var(--card);color:#fff;text-decoration:none;margin-right:8px}
+  .hero video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:24px 36px}
+  h1{margin:0 0 12px;font-size:36px;text-align:center}
+  p.lead{color:var(--muted);margin:0 0 18px;text-align:center}
 
-  /* CARDS UNIFORMISÉES */
+  .cta{text-align:center;}
+  .cta a{
+    display:inline-block;
+    padding:10px 14px;
+    border-radius:6px;
+    background:var(--card);
+    color:#fff;
+    text-decoration:none;
+    margin:0 5px;
+  }
+
+  /* GRID */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px;
+    padding:24px 36px;
+  }
+
   .card{
     background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
-    padding:12px;
+    padding:14px;
     border-radius:8px;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:flex-start;
-    min-height:260px;    /* ← UNIFORMISE LA HAUTEUR DES CARTES */
+    min-height:260px;
+    text-align:center;
+  }
+
+  .thumb-container{
+    width:200px;
+    height:200px;
+    background:#111;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    cursor:pointer;
+  }
+
+  /* Agrandissement spécifique pour "Symbiose Organique" */
+  .thumb-large{
+    width:230px;
+    height:230px;
+  }
+
+  .thumb-container img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    display:block;
   }
 
   footer{padding:36px;color:var(--muted);text-align:center}
@@ -44,7 +100,7 @@
     .hero .right{max-width:70%}
   }
 
-  /* Lightbox popup */
+  /* LIGHTBOX */
   #lightbox{
     position:fixed;
     inset:0;
@@ -98,40 +154,40 @@
 
     <!-- BIOMETAL -->
     <div class="card">
-      <div class="thumb-container" style="width:180px;height:180px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;">
-        <img src="assets/img/4.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;">
+      <div class="thumb-container">
+        <img src="assets/img/4.jpg" alt="">
       </div>
-      <div style="padding-top:8px;color:var(--muted); text-align:center;">
+      <div style="padding-top:8px;">
         <a href="portfolio.html" style="color:inherit;text-decoration:none;">Trophée Biometal IV — 27 cm</a>
       </div>
     </div>
 
-    <!-- SYMBIOSE (agrandie mais texte aligné grâce à min-height) -->
+    <!-- SYMBIOSE + GRANDE VIGNETTE -->
     <div class="card">
-      <div class="thumb-container" style="width:220px;height:220px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;">
-        <img src="assets/img/20251203_112206.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;">
+      <div class="thumb-container thumb-large">
+        <img src="assets/img/20251203_112206.jpg" alt="">
       </div>
-      <div style="padding-top:8px;color:var(--muted); text-align:center;">
+      <div style="padding-top:8px;">
         <a href="portfolio.html" style="color:inherit;text-decoration:none;">Symbiose Organique — 22 cm</a>
       </div>
     </div>
 
     <!-- DETAILS -->
     <div class="card">
-      <div class="thumb-container" style="width:180px;height:180px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;">
-        <img src="assets/img/5.png" alt="" style="max-width:100%; max-height:100%; object-fit:contain;">
+      <div class="thumb-container">
+        <img src="assets/img/5.png" alt="">
       </div>
-      <div style="padding-top:8px;color:var(--muted); text-align:center;">
+      <div style="padding-top:8px;">
         <a href="portfolio.html" style="color:inherit;text-decoration:none;">Détails & textures</a>
       </div>
     </div>
 
     <!-- TOTEM -->
     <div class="card">
-      <div class="thumb-container" style="width:180px;height:180px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;">
-        <img src="assets/img/3.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;">
+      <div class="thumb-container">
+        <img src="assets/img/3.jpg" alt="">
       </div>
-      <div style="padding-top:8px;color:var(--muted); text-align:center;">
+      <div style="padding-top:8px;">
         <a href="portfolio.html" style="color:inherit;text-decoration:none;">Totem — Pièce d'expo</a>
       </div>
     </div>
@@ -139,14 +195,12 @@
   </div>
 </section>
 
-
 <!-- LIGHTBOX -->
 <div id="lightbox">
   <img id="lightbox-img" src="">
 </div>
 
 <script>
-// Désactive clic droit
 document.addEventListener('contextmenu', e => e.preventDefault());
 
 // Lightbox

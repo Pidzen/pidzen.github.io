@@ -47,12 +47,15 @@
     flex-wrap:wrap;
     align-items:flex-start;
   }
-  .about-container img {
+
+  /* STYLE DE LA VIDEO */
+  .about-container video {
     width:320px;
     border-radius:8px;
     object-fit:cover;
     flex-shrink:0;
   }
+
   .about-text {
     flex:1;
     min-width:250px;
@@ -79,7 +82,7 @@
       flex-direction:column;
       align-items:center;
     }
-    .about-container img {
+    .about-container video {
       width:90%;
       max-width:320px;
     }
@@ -101,14 +104,23 @@
 <section>
   <h1>À propos</h1>
   <div class="about-container">
-    <img src="assets/img/atelier.jpg" alt="Atelier">
+
+    <!--  VIDEO À LA PLACE DE L'IMAGE  -->
+    <video autoplay muted loop playsinline>
+      <source src="assets/img/paint.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+
     <div class="about-text">
       <p>
-        Je m'appelle Pierre, sculpteur passionné, spécialisé dans les esthétiques <strong>biomécaniques, gothiques et fantastiques</strong>, avec une touche unique inspirée par la <strong>culture pop</strong>. 
+        Je m'appelle Pierre, sculpteur passionné, spécialisé dans les esthétiques 
+        <strong>biomécaniques, gothiques et fantastiques</strong>, avec une touche unique inspirée par la 
+        <strong>culture pop</strong>. 
         Je crée des <strong>trophées sur-mesure, pièces d’exposition et prototypes</strong> prêts au scan pour des studios d’animation et de jeux vidéo.
       </p>
       <p>
-        J’aime relever des <strong>défis créatifs</strong>, expérimenter de nouvelles formes et textures, et partager mon savoir-faire avec ceux qui apprécient l’originalité et la qualité artisanale. 
+        J’aime relever des <strong>défis créatifs</strong>, expérimenter de nouvelles formes et textures, 
+        et partager mon savoir-faire avec ceux qui apprécient l’originalité et la qualité artisanale. 
         Chaque sculpture est une <strong>pièce unique</strong>, conçue pour surprendre et captiver.
       </p>
       <ul>
@@ -121,7 +133,8 @@
 </section>
 
 <footer>
-  © Pierre Mordin — Sculpteur • <a href="contact.html" style="color:inherit;text-decoration:underline">Contact</a>
+  © Pierre Mordin — Sculpteur • 
+  <a href="contact.html" style="color:inherit;text-decoration:underline">Contact</a>
 </footer>
 
 </body>

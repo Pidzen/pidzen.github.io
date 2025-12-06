@@ -4,184 +4,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pierre Mordin, Sculpteur SF Fantastique & Pop Culture</title>
-<meta name="description" content="Pierre Mordin, sculpteur spécialisé en univers SF, fantastique et pop culture. Créations sur demande pour professionnels et particuliers.">
-<meta name="keywords" content="sculpture, trophées, biomécanique, gothique, pièces sur mesure, pop culture, SF, fantastique">
+<title>Pierre Mordin — Sculpteur SF, Fantastique & Pop Culture</title>
+<meta name="description" content="Pierre Mordin, sculpteur spécialisé en univers SF, fantastique et pop culture. Créations uniques pour particuliers, studios d'animation et de jeux vidéo.">
+<meta name="keywords" content="sculpture, trophées, biomécanique, gothique, pièces sur mesure, pop culture, SF, fantastique, animation, jeux vidéo">
 <meta name="robots" content="index, follow">
 
-<!-- Favicon universel GitHub Pages -->
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="/favi.ico">
 <link rel="shortcut icon" href="/favi.ico">
 <link rel="apple-touch-icon" href="/favi.ico">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Pierre Mordin, Sculpteur SF Fantastique & Pop Culture">
-<meta property="og:description" content="Pierre Mordin, sculpteur spécialisé en univers SF, fantastique et pop culture. Créations sur demande pour professionnels et particuliers.">
+<meta property="og:title" content="Pierre Mordin — Sculpteur SF, Fantastique & Pop Culture">
+<meta property="og:description" content="Créations uniques pour particuliers, studios d'animation et de jeux vidéo.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pidzen.github.io/">
 <meta property="og:image" content="https://pidzen.github.io/assets/fav.png">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pierre Mordin, Sculpteur SF Fantastique & Pop Culture">
-<meta name="twitter:description" content="Pierre Mordin, sculpteur spécialisé en univers SF, fantastique et pop culture. Créations sur demande pour professionnels et particuliers.">
+<meta name="twitter:title" content="Pierre Mordin — Sculpteur SF, Fantastique & Pop Culture">
+<meta name="twitter:description" content="Créations uniques pour particuliers, studios d'animation et de jeux vidéo.">
 <meta name="twitter:image" content="https://pidzen.github.io/assets/fav.png">
 
 <style>
-:root{
-  --bg:#0f0f10;
-  --card:#161617;
-  --muted:#9aa0a6;
-  --accent:#b6a19b;
-}
-
+:root{--bg:#0f0f10;--card:#161617;--muted:#9aa0a6;--accent:#b6a19b}
 *{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:Inter,system-ui,Segoe UI,Arial;
-  color:#eee;
-  background:var(--bg);
-  line-height:1.4;
-}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;color:#eee;background:var(--bg);line-height:1.4;}
 
-/* HEADER */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 36px;
-  border-bottom:1px solid #222;
-}
-header .logo{ font-weight:700; font-size:20px; }
-header nav a{ color:#eee; text-decoration:none; margin-left:18px; font-weight:500; }
+/* HEADER uniforme */
+header{display:flex;justify-content:space-between;align-items:center;padding:28px 36px;border-bottom:1px solid #222;}
+header .logo{font-weight:700;font-size:20px;}
+header nav a{color:#eee;text-decoration:none;margin-left:18px;font-weight:500;}
 
 /* HERO */
-.hero{
-  display:flex;
-  gap:36px;
-  padding:36px;
-  align-items:center;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.hero .left{
-  max-width:640px;
-  flex:1;
-  text-align:center;
-}
-.hero .right{
-  width:260px;
-  height:260px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:8px;
-  overflow:hidden;
-  box-shadow:0 6px 30px rgba(0,0,0,.6);
-  background:#111;
-}
-.hero video{
-  width:100%;
-  height:100%;
-  object-fit:contain; /* voir toute la vidéo dans la vignette */
-  display:block;
-  border-radius:8px;
-}
+.hero{display:flex;gap:36px;padding:36px;align-items:center;flex-wrap:wrap;justify-content:center;}
+.hero .left{max-width:640px;flex:1;text-align:center;}
+.hero .right{width:260px;height:260px;display:flex;align-items:center;justify-content:center;border-radius:8px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,.6);background:#111;}
+.hero video{width:100%;height:100%;object-fit:contain;display:block;border-radius:8px;}
 
-h1{margin:0 0 12px;font-size:36px;text-align:center}
-p.lead{color:var(--muted);margin:0 0 18px;text-align:center}
+h1{margin:0 0 12px;font-size:36px;text-align:center;}
+p.lead{color:var(--muted);margin:0 0 18px;text-align:center;}
 
 .cta{text-align:center;}
-.cta a{
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:6px;
-  background:var(--card);
-  color:#fff;
-  text-decoration:none;
-  margin:0 5px;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-.cta a:hover{
-  transform:scale(1.05);
-  background:var(--accent);
-}
+.cta a{display:inline-block;padding:10px 14px;border-radius:6px;background:var(--card);color:#fff;text-decoration:none;margin:0 5px;transition: transform 0.2s ease, background 0.2s ease;}
+.cta a:hover{transform:scale(1.05);background:var(--accent);}
 
 /* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:24px;
-  padding:24px 36px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;padding:24px 36px;}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);padding:14px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:260px;text-align:center;transition: transform 0.3s ease, box-shadow 0.3s ease;}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+.thumb-container{width:200px;height:200px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;transition: transform 0.3s ease;}
+.thumb-container img{max-width:100%;max-height:100%;object-fit:contain;display:block;user-drag:none;user-select:none;pointer-events:none;}
+.thumb-container:hover{transform:scale(1.05);}
 
-.card{
-  background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
-  padding:14px;
-  border-radius:8px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  min-height:260px;
-  text-align:center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.6);
-}
+footer{padding:36px;color:var(--muted);text-align:center;}
 
-.thumb-container{
-  width:200px;
-  height:200px;
-  background:#111;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  cursor:pointer;
-  transition: transform 0.3s ease;
-}
-.thumb-container img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-  display:block;
-  user-drag:none;
-  user-select:none;
-  pointer-events:none;
-}
-.thumb-container:hover{
-  transform:scale(1.05);
-}
-
-footer{padding:36px;color:var(--muted);text-align:center}
-
-@media(max-width:800px){
-  .hero{flex-direction:column}
-  .hero .right{max-width:70%}
-}
+@media(max-width:800px){.hero{flex-direction:column}.hero .right{max-width:70%;}}
 
 /* LIGHTBOX */
-#lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.85);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-  transition: opacity 0.3s ease;
-}
-#lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:8px;
-  box-shadow:0 0 30px rgba(0,0,0,.7);
-  transition: transform 0.3s ease;
-}
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:9999;transition: opacity 0.3s ease;}
+#lightbox img{max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 0 30px rgba(0,0,0,.7);transition: transform 0.3s ease;}
 </style>
 </head>
 
@@ -200,7 +83,7 @@ footer{padding:36px;color:var(--muted);text-align:center}
 <section class="hero">
   <div class="left">
     <h1>Pierre Mordin — Sculpteur, modeleur</h1>
-    <p class="lead">Trophées uniques • Sculptures fantastiques • Pièces sur-mesure — travail 100% artisanal.</p>
+    <p class="lead">Créations uniques pour particuliers, studios d’animation et de jeux vidéo — trophées, pièces d’exposition et prototypes sur-mesure.</p>
     <div class="cta">
       <a href="portfolio.html">Voir le portfolio</a>
       <a href="contact.html">Demander un devis</a>
@@ -287,7 +170,7 @@ lightbox.addEventListener('click', () => {
 </script>
 
 <footer>
-  © Sculpteur/modeleur • <a href="contact.html" style="color:inherit;text-decoration:underline">Contact</a>
+  © Pierre Mordin — Sculpteur/modeleur • <a href="contact.html" style="color:inherit;text-decoration:underline">Contact</a>
 </footer>
 
 </body>

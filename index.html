@@ -172,6 +172,20 @@ lightbox.addEventListener('click', () => {
 <footer>
   © Pierre Mordin — Sculpteur/modeleur • <a href="contact.html" style="color:inherit;text-decoration:underline">Contact</a>
 </footer>
+<script>
+  // Appelle l'endpoint pour incrémenter le compteur
+  (function() {
+    // remplace par ton URL Apps Script (sans les params)
+    const APPSCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCNa3dO4nJo3w-2Cmbx3xeuGexgMr8hvkiMDZMBF_gW8bs-JOl1-Qloa78hiuHVRLvpQ/exec";
+
+    // Envoi asynchrone, on ignore la réponse (ne bloque pas le chargement)
+    fetch(APPSCRIPT_URL + "?action=inc", { method: "GET", mode: "no-cors" })
+      .catch(() => { /* on ignore les erreurs si CORS/no-cors */ });
+
+    // NOTE: nous utilisons mode: "no-cors" pour éviter les erreurs CORS si elles surviennent.
+    // L'Apps Script doit être déployé "Anyone, even anonymous".
+  })();
+</script>
 
 </body>
 </html>

@@ -3,177 +3,201 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Portfolio — Pierre Mordin</title>
-<meta name="description" content="Portfolio de sculptures — diaporamas par pièce, photos regroupées par œuvre.">
+<title>Pierre Mordin — Portfolio</title>
+<meta name="description" content="Portfolio de Pierre Mordin — Sculpteur/modeleur biomécanique et gothique. Trophées et sculptures sur-mesure.">
+
 <style>
-  :root{--bg:#0f0f10;--card:#161617;--muted:#9aa0a6;--accent:#b6a19b}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;color:#eee;background:var(--bg);line-height:1.4}
-  .wrap{max-width:1200px;margin:0 auto;padding:28px 20px}
-  h1{font-size:28px;text-align:center;margin-bottom:6px}
-  p.lead{color:var(--muted);text-align:center;margin-top:0;margin-bottom:24px}
+:root{--bg:#0f0f10;--card:#161617;--muted:#9aa0a6;--accent:#b6a19b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;color:#eee;background:var(--bg);line-height:1.4;scroll-behavior:smooth;}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);padding:14px;border-radius:10px;display:flex;flex-direction:column;align-items:center}
-  .slideshow{width:220px;height:220px;border-radius:8px;background:#0c0c0c;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative}
-  .slideshow img{max-width:100%;max-height:100%;object-fit:contain;display:block;pointer-events:none;user-drag:none}
-  .caption{padding-top:10px;color:var(--muted);text-align:center;font-size:14px}
+header{display:flex;justify-content:space-between;align-items:center;padding:28px 36px}
+header a{color:#eee;text-decoration:none;margin-left:18px;font-weight:500}
 
-  /* lightbox */
-  #lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:none;align-items:center;justify-content:center;z-index:9999}
-  #lightbox .inner{position:relative;max-width:92%;max-height:92%;display:flex;align-items:center;justify-content:center}
-  #lightbox img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 0 30px rgba(0,0,0,.7)}
-  #lightbox .close{position:absolute;top:8px;right:8px;color:#fff;background:rgba(0,0,0,.4);border-radius:6px;padding:6px;cursor:pointer}
-  #lightbox .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:28px;cursor:pointer;padding:12px;background:rgba(0,0,0,.35);border-radius:8px}
-  #lightbox .prev{left:12px}
-  #lightbox .next{right:12px}
+.hero{display:flex;gap:36px;padding:36px;align-items:center;flex-wrap:wrap}
+.hero .left{max-width:640px;flex:1}
+.hero .right{max-width:260px;flex-shrink:0;border-radius:8px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,.6)}
+.hero video{width:100%;height:auto;border-radius:8px;display:block;object-fit:cover;}
 
-  /* hover effects */
-  .slideshow:hover{transform:scale(1.02)}
-  .card{transition:transform .25s ease,box-shadow .25s ease}
-  .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.6)}
+h1{margin:0 0 12px;font-size:36px}
+p.lead{color:var(--muted);margin:0 0 18px}
+.cta a{display:inline-block;padding:10px 14px;border-radius:6px;background:var(--card);color:#fff;text-decoration:none;margin-right:8px}
 
-  @media(max-width:700px){.slideshow{width:180px;height:180px}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:24px 36px}
+
+/* CARDS */
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+  padding:12px;
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  min-height:260px;
+  opacity:0;
+  transform:translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.card.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 16px 40px rgba(0,0,0,0.6);
+}
+
+/* Slideshow images */
+.slideshow{position:relative;width:100%;height:220px;overflow:hidden;border-radius:8px;background:#111;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.slideshow img{
+  position:absolute;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  transition:opacity 0.6s ease-in-out;
+  opacity:0;
+}
+.slideshow img.active{opacity:1;}
+.slideshow img:hover{transform:scale(1.05);transition:transform 0.4s ease;}
+
+footer{padding:36px;color:var(--muted);text-align:center}
+
+@media(max-width:800px){
+  .hero{flex-direction:column}
+  .hero .right{max-width:70%}
+}
+
+/* Lightbox */
+#lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+#lightbox img{
+  max-width:95%;
+  max-height:95%;
+  border-radius:8px;
+  box-shadow:0 0 30px rgba(0,0,0,.7);
+}
 </style>
 </head>
+
 <body>
-<div class="wrap">
-  <h1>Portfolio — Sculptures</h1>
-  <p class="lead">Diaporamas par sculpture — images regroupées. Slides automatiques (1.2s). Clique pour agrandir.</p>
 
-  <div class="grid" id="portfolioGrid">
-    <!-- Cards will be injected here -->
-  </div>
-</div>
+<header>
+  <div style="font-weight:700">Pierre Mordin</div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-<!-- Lightbox -->
-<div id="lightbox" aria-hidden="true">
-  <div class="inner">
-    <div class="close" id="lbClose">✕</div>
-    <div class="nav prev" id="lbPrev">◀</div>
-    <img id="lbImg" src="" alt="">
-    <div class="nav next" id="lbNext">▶</div>
+<section class="hero">
+  <div class="left">
+    <h1>Pierre Mordin — Sculpteur, modeleur</h1>
+    <p class="lead">Trophées et sculptures sur-mesure, travail 100% artisanal.</p>
+    <div class="cta">
+      <a href="portfolio.html">Voir le portfolio</a>
+      <a href="contact.html">Demander un devis</a>
+    </div>
   </div>
+  <div class="right">
+    <video src="assets/img/pi.mp4" autoplay loop muted playsinline></video>
+  </div>
+</section>
+
+<section style="padding:18px 36px">
+  <h2 style="margin-top:0;text-align:center;">Portfolio</h2>
+  <p style="text-align:center;max-width:700px;margin:0 auto 24px;color:var(--muted);">
+    Découvrez mes sculptures à travers des diaporamas regroupés par œuvre. Cliquez sur les images pour les visualiser en plein écran.
+  </p>
+  <div class="grid">
+
+    <!-- Exemple de slideshow par sculpture -->
+    <div class="card">
+      <div class="slideshow" data-files='["assets/i/c0009.jpg","assets/i/c0045.jpg","assets/i/c0043.jpg"]'></div>
+      <div style="padding-top:8px;color:var(--muted); text-align:center;">
+        <a href="portfolio.html" style="color:inherit;text-decoration:none;">Ragnar L.</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="slideshow" data-files='["assets/i/3 (2).png","assets/i/qq0056.jpg","assets/i/IMG-20250419-WA0006.jpg"]'></div>
+      <div style="padding-top:8px;color:var(--muted); text-align:center;">
+        <a href="portfolio.html" style="color:inherit;text-decoration:none;">Plantes Xénomorphes</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="slideshow" data-files='["assets/i/0007.jpg","assets/i/0001.jpg","assets/i/0005.jpg","assets/i/a01.jpg","assets/i/a03.jpg","assets/i/0008.jpg"]'></div>
+      <div style="padding-top:8px;color:var(--muted); text-align:center;">
+        <a href="portfolio.html" style="color:inherit;text-decoration:none;">Alice Grunge</a>
+      </div>
+    </div>
+
+    <!-- Ajoute les autres sculptures de la même façon -->
+    
+  </div>
+</section>
+
+<div id="lightbox">
+  <img id="lightbox-img" src="">
 </div>
 
 <script>
-// Data: groups exactly as you provided
-const galleryData = [
-  {title: "Ragnar L.", files: ['c0009.jpg','c0045.jpg','c0043.jpg','c007.jpg','c0107.jpg','c0023.jpg','c0025.jpg','c004.jpg','c0031.jpg','c005.jpg','c006.jpg','c038.jpg']},
-  {title: "Plantes Xénomorphes", files: ['3 (2).png','qq0056.jpg','IMG-20250419-WA0006.jpg']},
-  {title: "Alice Grunge", files: ['0007.jpg','0001.jpg','0005.jpg','a01.jpg','a03.jpg','0008.jpg']},
-  {title: "Chtulhu", files: ['a01.png','a08.jpg','a09.jpg','a10.jpg','a12.jpg']},
-  {title: "Pyramid Head", files: ['qs0097.jpg','a14.jpg','a13.jpg','a15.jpg']},
-  {title: "Edda IronMaiden Tribute", files: ['6.jpg','7.jpg','8..jpg']},
-  {title: "Amazone", files: ['q08.jpg','q14.jpg','q020.jpg','q031.jpg','q026.jpg','q035.jpg','q0043.jpg','q057.jpg','q066.jpg']},
-  {title: "Alice Madness", files: ['A0108.jpg','A0106.jpg','A0107.jpg','A0122.jpg','A0110.jpg']},
-  {title: "Bébé Game of Throne", files: ['9_Gallery.jpg','4_Gallery.jpg','8_Gallery.jpg','allery.jpg','aa0089.jpg','qs81.jpg','a16.jpg']},
-  {title: "Dark princess", files: ['33.jpg','A0002d.jpg','dd51.jpg','44.jpg','A0001.jpg','A0002.jpg']},
-  {title: "Vrac", files: ['_Gallery.jpg','a18.jpg','00.jpg','a17.jpg','008.jpg','904_Gallery.jpg','qs087.jpg','3.png','qq0072.jpg','WA0003.jpg','008.jpg']},
-  {title: "Vrac finalisé", files: ['007.jpg','d0010.jpg','09.jpg','15733.jpg','a02.jpg','a04.jpg','a21.jpg','a22.jpg','a23.jpg','a24.jpg','guizjedi.png','WA08.jpg','WA09.jpg','WA010.jpg']}
-];
+// Désactive clic droit
+document.addEventListener('contextmenu', e => e.preventDefault());
 
-// base path where images live
-const basePath = 'assets/i/'; // adjust if needed
-
-// create cards
-const grid = document.getElementById('portfolioGrid');
-
-galleryData.forEach((group, gidx) => {
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  const slide = document.createElement('div');
-  slide.className = 'slideshow';
-  slide.setAttribute('data-group', gidx);
-
-  const img = document.createElement('img');
-  img.alt = group.title;
-  img.src = '';
-  slide.appendChild(img);
-
-  // caption
-  const cap = document.createElement('div');
-  cap.className = 'caption';
-  cap.innerHTML = `<strong>${group.title}</strong>`;
-
-  card.appendChild(slide);
-  card.appendChild(cap);
-  grid.appendChild(card);
-
-  // slideshow state
-  slide._files = group.files.slice();
-  slide._i = 0;
-  // pre-encode filenames to ensure spaces work
-  slide._files = slide._files.map(f=>encodeURI(basePath + f));
-  img.src = slide._files[0];
-
-  // autoplay
-  let interval = null;
-  const start = ()=>{
-    interval = setInterval(()=>{
-      slide._i = (slide._i + 1) % slide._files.length;
-      img.src = slide._files[slide._i];
-    }, 1200);
-  };
-  const stop = ()=>{ if(interval){clearInterval(interval); interval=null} };
-  start();
-
-  // pause on hover
-  slide.addEventListener('mouseenter', stop);
-  slide.addEventListener('mouseleave', start);
-
-  // click opens lightbox at group idx
-  slide.addEventListener('click', ()=> openLightbox(gidx, slide._i));
+// Animation d'apparition des cartes
+const cards = document.querySelectorAll('.card');
+cards.forEach((c,i)=>{
+  setTimeout(()=>c.classList.add('visible'), i*150);
 });
 
-// Lightbox logic
-const lightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lbImg');
-const lbClose = document.getElementById('lbClose');
-const lbPrev = document.getElementById('lbPrev');
-const lbNext = document.getElementById('lbNext');
-let lbGroup = 0, lbIndex = 0;
+// Slideshow automatique
+document.querySelectorAll('.slideshow').forEach(slide=>{
+  const files = JSON.parse(slide.dataset.files);
+  let index = 0;
 
-function openLightbox(gidx, idx){
-  lbGroup = gidx; lbIndex = idx || 0;
-  const files = galleryData[lbGroup].files.map(f=>encodeURI(basePath+f));
-  lbImg.src = files[lbIndex];
-  lightbox.style.display = 'flex';
-  lightbox.setAttribute('aria-hidden','false');
-}
-function closeLightbox(){ lightbox.style.display='none'; lightbox.setAttribute('aria-hidden','true'); }
-function prevLightbox(){
-  const files = galleryData[lbGroup].files.map(f=>encodeURI(basePath+f));
-  lbIndex = (lbIndex -1 + files.length) % files.length;
-  lbImg.src = files[lbIndex];
-}
-function nextLightbox(){
-  const files = galleryData[lbGroup].files.map(f=>encodeURI(basePath+f));
-  lbIndex = (lbIndex +1) % files.length;
-  lbImg.src = files[lbIndex];
-}
+  files.forEach((f, i)=>{
+    const img = document.createElement('img');
+    img.src = f;
+    if(i===0) img.classList.add('active');
+    slide.appendChild(img);
+  });
 
-lbClose.addEventListener('click', closeLightbox);
-lbPrev.addEventListener('click', prevLightbox);
-lbNext.addEventListener('click', nextLightbox);
+  setInterval(()=>{
+    const images = slide.querySelectorAll('img');
+    images[index].classList.remove('active');
+    index = (index+1)%images.length;
+    images[index].classList.add('active');
+  },1200);
 
-// close when clicking outside image
-lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLightbox(); });
-
-// keyboard navigation
-document.addEventListener('keydown', (e)=>{
-  if(lightbox.style.display==='flex'){
-    if(e.key==='ArrowLeft') prevLightbox();
-    if(e.key==='ArrowRight') nextLightbox();
-    if(e.key==='Escape') closeLightbox();
-  }
+  // Lightbox ouverture
+  slide.addEventListener('click', ()=>{
+    const images = slide.querySelectorAll('img');
+    const activeImg = slide.querySelector('img.active');
+    document.getElementById('lightbox-img').src = activeImg.src;
+    document.getElementById('lightbox').style.display = 'flex';
+  });
 });
 
-// disable drag & right click for images
-document.addEventListener('contextmenu', e=>e.preventDefault());
-document.addEventListener('dragstart', e=>{ if(e.target.tagName==='IMG') e.preventDefault(); });
-
+// Lightbox fermeture
+document.getElementById('lightbox').addEventListener('click', ()=>{
+  document.getElementById('lightbox').style.display = 'none';
+});
 </script>
+
+<footer>
+  © Sculpteur/modeleur • <a href="contact.html" style="color:inherit;text-decoration:underline">Contact</a>
+</footer>
+
 </body>
 </html>

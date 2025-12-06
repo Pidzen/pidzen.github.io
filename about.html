@@ -28,25 +28,102 @@
 <meta name="twitter:image" content="https://pidzen.github.io/assets/fav.png">
 
 <style>
-:root{--bg:#0f0f10;--card:#161617;--muted:#9aa0a6;--accent:#b6a19b}
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;color:#eee;background:var(--bg);line-height:1.6}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 36px;border-bottom:1px solid #222}
-header .logo{font-weight:700;font-size:20px}
-header nav a{color:#eee;text-decoration:none;margin-left:18px;font-weight:500}
+:root{
+  --bg:#0f0f10;
+  --card:#161617;
+  --muted:#9aa0a6;
+  --accent:#b6a19b;
+}
 
-section{padding:48px 24px;max-width:1000px;margin:0 auto}
-h1{margin-bottom:24px;font-size:36px}
-.about-container{display:flex;gap:36px;flex-wrap:wrap;align-items:flex-start}
-.about-container video{width:320px;border-radius:8px;object-fit:cover;flex-shrink:0}
-.about-text{flex:1;min-width:250px}
-.about-text p{color:var(--muted);margin-bottom:18px}
-.about-text ul{color:var(--muted);padding-left:20px;margin-top:12px}
-.about-text ul li{margin-bottom:8px}
-footer{padding:36px;color:var(--muted);text-align:center}
-@media(max-width:800px){.about-container{flex-direction:column;align-items:center}.about-container video{width:90%;max-width:320px}}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Arial;
+  color:#eee;
+  background:var(--bg);
+  line-height:1.6;
+}
+
+/* HEADER uniformisé avec les autres pages */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 36px;
+  border-bottom:1px solid #222;
+}
+header .logo{
+  font-weight:700;
+  font-size:20px;
+}
+header nav a{
+  color:#eee;
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:500;
+}
+
+/* SECTION */
+section{
+  padding:48px 24px;
+  max-width:1000px;
+  margin:0 auto;
+}
+h1{
+  margin-bottom:24px;
+  font-size:36px;
+}
+
+/* ABOUT */
+.about-container{
+  display:flex;
+  gap:36px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+}
+.about-container video{
+  width:320px;
+  border-radius:8px;
+  object-fit:contain; /* voir toute la vidéo */
+  flex-shrink:0;
+  background:#111;
+}
+.about-text{
+  flex:1;
+  min-width:250px;
+}
+.about-text p{
+  color:var(--muted);
+  margin-bottom:18px;
+}
+.about-text ul{
+  color:var(--muted);
+  padding-left:20px;
+  margin-top:12px;
+}
+.about-text ul li{
+  margin-bottom:8px;
+}
+
+footer{
+  padding:36px;
+  color:var(--muted);
+  text-align:center;
+}
+
+@media(max-width:800px){
+  .about-container{
+    flex-direction:column;
+    align-items:center;
+  }
+  .about-container video{
+    width:90%;
+    max-width:320px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
